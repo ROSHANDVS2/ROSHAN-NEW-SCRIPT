@@ -1070,7 +1070,7 @@ local Library do
 
                 if Data.SubPages then
                     Items["SubPages"] = Instances:Create("Frame", {
-                        Parent = Items[
+                        Parent = Items["Page"].Instance,
                         Name = "\0",
                         Size = UDim2New(0, 0, 0, 35),
                         BorderColor3 = FromRGB(42, 49, 45),
@@ -6844,7 +6844,7 @@ AntiFeaturesSection:Toggle({
 -- Universal Helper Functions
 local function setupDescendantMonitor(parent, targetNames, displayName, callback)
     local connections = {}
-    loc
+    local function monitor(descendant)
         if type(targetNames) == "table" then
             if targetNames[descendant.Name] then
                 callback(descendant)
